@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 26
 
     defaultConfig {
         applicationId "lk.ac.mrt.cse.dbs.simpleexpensemanager"
-        minSdk 26
+        minSdk 19
         targetSdk 32
         versionCode 1
         versionName "1.0"
