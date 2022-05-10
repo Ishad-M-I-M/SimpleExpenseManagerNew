@@ -1,0 +1,24 @@
+name: Tests on Android Emulator
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: macOS-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: Grant permission
+        run: chmod +x gradlew
+      - name: run tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 26
+          script: ./gradlew test connectedAndroidTest
