@@ -30,12 +30,13 @@ jobs:
         distribution: 'temurin'
     - name: Grant Permission for gradew
       run: chmod +x gradlew
+    - name: Run Android Tests
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+          api-level: 26
+          script: ./gradlew test connectedAndroidTest
     - name: Build with Gradle
       uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
       with:
         arguments: build
-     - name: Run Android Tests
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 26
-          script: ./gradlew test connectedAndroidTest
+     
